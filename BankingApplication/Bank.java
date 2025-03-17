@@ -26,7 +26,7 @@ class Account implements Serializable {
         return holderName;
     }
 
-    public double getBalance() {
+    public double getBalance() { 
         return balance;
     }
 
@@ -40,7 +40,7 @@ class Account implements Serializable {
             addTransaction("Deposited: Rs." + amount);
             System.out.println("-----> Rs." + amount + " deposited successfully!");
         } else {
-            System.out.println("Invalid deposit amount!");
+            System.out.println(" Invalid deposit amount!");
         }
     }
 
@@ -50,7 +50,7 @@ class Account implements Serializable {
             addTransaction("Withdrawn: Rs." + amount);
             System.out.println("-----> Rs." + amount + " withdrawn successfully!");
         } else {
-            System.out.println("Insufficient funds or invalid amount!");
+            System.out.println(" Insufficient funds or invalid amount!");
         }
     }
 
@@ -88,8 +88,7 @@ class Bank {
             System.out.print(" Choose an option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
-
+            scanner.nextLine(); 
             switch (choice) {
                 case 1:
                     createAccount();
@@ -102,7 +101,7 @@ class Bank {
                     System.out.println(" Exiting. Thank you!");
                     return;
                 default:
-                    System.out.println("Invalid choice! Try again.");
+                    System.out.println(" Invalid choice! Try again.");
             }
         }
     }
@@ -135,7 +134,7 @@ class Bank {
                 return;
             }
         }
-        System.out.println("Invalid account number or PIN!");
+        System.out.println(" Invalid account number or PIN!");
     }
 
     private static void manageAccount(Account account) {
@@ -145,7 +144,8 @@ class Bank {
             System.out.println("2 Withdraw Money");
             System.out.println("3 View Transaction History");
             System.out.println("4 Apply Interest (5%)");
-            System.out.println("5 Logout");
+            System.out.println("5 Check Available Balance"); 
+            System.out.println("6 Logout");
             System.out.print(" Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -165,7 +165,10 @@ class Bank {
                     account.applyInterest(5);
                     System.out.println(" Interest applied at 5% rate!");
                     break;
-                case 5:
+                case 5:  
+                    System.out.println(" Available Balance: Rs." + account.getBalance());
+                    break;
+                case 6:
                     System.out.println(" Logging out...");
                     return;
                 default:
