@@ -40,7 +40,7 @@ class Account implements Serializable {
             addTransaction("Deposited: Rs." + amount);
             System.out.println("-----> Rs." + amount + " deposited successfully!");
         } else {
-            System.out.println("❌ Invalid deposit amount!");
+            System.out.println("Invalid deposit amount!");
         }
     }
 
@@ -50,7 +50,7 @@ class Account implements Serializable {
             addTransaction("Withdrawn: Rs." + amount);
             System.out.println("-----> Rs." + amount + " withdrawn successfully!");
         } else {
-            System.out.println("❌ Insufficient funds or invalid amount!");
+            System.out.println("Insufficient funds or invalid amount!");
         }
     }
 
@@ -102,7 +102,7 @@ class Bank {
                     System.out.println(" Exiting. Thank you!");
                     return;
                 default:
-                    System.out.println("❌ Invalid choice! Try again.");
+                    System.out.println("Invalid choice! Try again.");
             }
         }
     }
@@ -135,12 +135,12 @@ class Bank {
                 return;
             }
         }
-        System.out.println("❌ Invalid account number or PIN!");
+        System.out.println("Invalid account number or PIN!");
     }
 
     private static void manageAccount(Account account) {
         while (true) {
-            System.out.println("\n🏦 Account Menu (" + account.getHolderName() + ")");
+            System.out.println("\n Account Menu (" + account.getHolderName() + ")");
             System.out.println("1 Deposit Money");
             System.out.println("2 Withdraw Money");
             System.out.println("3 View Transaction History");
