@@ -1,0 +1,22 @@
+CREATE DATABASE banking;
+USE banking;
+
+CREATE TABLE accounts (
+    account_id INT AUTO_INCREMENT PRIMARY KEY,
+    holder_name VARCHAR(100) NOT NULL,
+    balance DECIMAL(15,2) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE transactions (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT,
+    transaction_type ENUM('Deposit', 'Withdrawal') NOT NULL,
+    amount DECIMAL(15,2) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id)
+);
+
+-- Insert Sample Accounts
+INSERT INTO accounts (holder_name, balance) VALUES 
+('John Doe', 50000.00),
+('Alice Smith', 30000.00);
